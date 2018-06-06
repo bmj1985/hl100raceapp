@@ -1,31 +1,39 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app class="app">
+    <v-content :runners="runners">
+      <router-view/>
+    </v-content>
+    <Footer />
+  </v-app>
 </template>
 
+<script>
+import Footer from '@/components/Footer'
+
+export default {
+  name: 'App',
+  components: {
+    Footer
+  },
+  created () {
+        this.$store.dispatch("listRunners")
+    },
+  computed: {
+        runners (){
+            return this.$store.state.runners
+        }
+    }
+}
+</script>
+
+
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
+div#app {
+  background-color: #A97C54;
+  }
+#content {
+  height: 80vh;
+  width: 100vw;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
