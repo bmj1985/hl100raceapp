@@ -1,6 +1,6 @@
 {
-  "name": "hl100-client",
-  "short_name": "hl100-client",
+  "name": "hl100-race-app",
+  "short_name": "hl100",
   "icons": [
     {
       "src": "/img/icons/android-chrome-192x192.png",
