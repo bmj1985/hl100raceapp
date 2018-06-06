@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import LandingPage from '@/views/LandingPage'
-import RunnerCheckIn from '@/components/RunnerCheckIn'
 import Access from '@/views/Access'
 import Roster from '@/views/Roster'
+import RunnerCheckIn from '@/views/RunnerCheckIn'
 import RunnerTrackingConsole from '@/views/RunnerTrackingConsole'
 import AidStation from '@/views/AidStation'
-import RunnerList from '@/components/RunnerList'
 
 Vue.use(Router)
 
