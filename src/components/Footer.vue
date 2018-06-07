@@ -1,9 +1,9 @@
 <template>
-    <!-- <v-container class="footer"> -->
+    <v-container class="footer">
         <v-footer id="footer" :fixed="fixed" app>
           <span id="copyright">&copy; 2018 Tin Cup Software</span>
         </v-footer>
-    <!-- </v-container> -->
+    </v-container>
 </template>
 
 <script>

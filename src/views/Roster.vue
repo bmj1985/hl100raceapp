@@ -74,7 +74,7 @@ export default {
         sortable: false,
         value: 'shirtSize'
       },
-      ]      
+      ]  
     }
   },
   mounted () {
