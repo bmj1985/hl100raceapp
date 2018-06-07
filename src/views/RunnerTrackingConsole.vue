@@ -12,6 +12,9 @@
         </div>
       </v-layout>
     </v-container>
+    <div>
+        <StatBar></StatBar>
+    </div>
     <div id="runnerlist">
     <RunnerList/>
     </div>
@@ -20,10 +23,11 @@
 
 <script>
 import RunnerList from '@/components/RunnerList'
+import StatBar from '@/components/StatBar'
 export default {
   name: 'RunnerTrackingConsole',
   components: {
-    RunnerList
+    RunnerList, StatBar
   },
   data () {
     return {
