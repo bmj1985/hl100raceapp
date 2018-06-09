@@ -51,12 +51,6 @@
   </v-data-table>
 </template>
 <script>
-import Pusher from 'pusher-js'
-const socket = new Pusher('0c52d4e3dcef6077075b', {
-        cluster: 'us2',
-        encrypted: true
-      })
-const channel = socket.subscribe('hl100-runnertracking')
 export default {
   name: 'RunnerList',
   props: ['runners'],
