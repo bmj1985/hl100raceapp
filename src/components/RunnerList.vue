@@ -53,6 +53,7 @@
 <script>
 export default {
   name: 'RunnerList',
+  props: ['runners'],
   data () {
     return {
       headers: [
@@ -147,14 +148,6 @@ export default {
           value: 'RasberryTwoPacerOut'
         }
       ]
-    }
-  },
-  created () {
-    this.$store.dispatch('listRunners')
-  },
-  computed: {
-    runners () {
-      return this.$store.state.runners
     }
   }
 }

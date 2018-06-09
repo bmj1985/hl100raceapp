@@ -1,29 +1,35 @@
 <template>
-<div>
-    <v-container class="trail">
+<div class="runner-tracking">
+    <v-container fluid class="ma-0 pa-0">
       <v-layout column align-center class="logo">
         <h1><span>{{title_span1}}</span> {{title}} <span>{{title_span2}}</span></h1>
         <div class="text-xs-center trail-link">
           <router-link class="nav-link-trail" :to="{ name: 'Access'}">
             <v-btn round color="secondary" class="btn-trail" large dark>
-              BACK
+              HOME
             </v-btn>
           </router-link>
         </div>
       </v-layout>
     </v-container>
-    <div id="runnerlist">
-    <RunnerList/>
-    </div>
+    <v-container fluid class="ma-0 pa-0">
+    <StatBar :arrayBegin="0" :arrayEnd="14"></StatBar>
+     <v-layout row>
+     <img id="coursemap" src="../assets/courseMap.png" />
+    <RunnerList id="runnerlist" :runners="runners"/>
+    </v-layout>
+    <StatBar :arrayBegin="14" :arrayEnd="27"></StatBar>
+    </v-container>
 </div>
 </template>
 
 <script>
 import RunnerList from '@/components/RunnerList'
+import StatBar from '@/components/StatBar'
 export default {
   name: 'RunnerTrackingConsole',
   components: {
-    RunnerList
+    RunnerList, StatBar
   },
   data () {
     return {
@@ -31,13 +37,29 @@ export default {
       title_span1: 'HIGH',
       title_span2: '100'
     }
+  },
+  created () {
+    this.$store.dispatch('listRunners')
+  },
+  computed: {
+    runners () {
+      return this.$store.state.runners
+    }
   }
 }
 </script>
 
 <style scoped>
+#coursemap {
+  height: 65vh;
+}
+.stat-bar {
+  width: 100vw;
+  overflow: scroll;
+}
 #runnerlist {
-  margin: 1vw;
+  height: 65vh;
+  overflow: scroll;
 }
 span {
   font-weight: 400;
