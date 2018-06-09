@@ -17,14 +17,16 @@
   </v-container>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+import moment from 'moment'
 export default {
 name: 'StatBar',
 props: ['arrayBegin', 'arrayEnd'],
 data () {
 return {
 aidStation: [{ name: 'Zone 1',
-    numberOfRunners: 34,
-    timeLeft: '00:00:00'
+    numberOfRunners: this.$store.getters.zoneOne.length,
+    timeLeft: this.timeLeft('2018-06-12 14:19')
 },
 { name: 'Rasberry 1',
     numberOfRunners: 34,
@@ -128,6 +130,19 @@ aidStation: [{ name: 'Zone 1',
     timeLeft: '00:00:00'
 }]
 }
+},
+computed: {
+...mapGetters(['zoneOne'])
+},
+methods: {
+    timeLeft (time) {
+        const now = moment()
+        const end = moment(time)
+        const duration = moment.duration(end.diff(now))
+        let hours = duration.asHours() - (duration.asHours() % 1)
+        let minutes = duration.asMinutes() % 60
+        return `${hours}:${Math.round(minutes).toString().padStart(2,'0')}`
+    }
 }
 }
 </script>

@@ -22,5 +22,10 @@ export default new Vuex.Store({
           store.commit('listRunners', runners)
         })
     }
+  },
+  getters: {
+    zoneOne: state => {
+      return state.runners.filter(runner => runner.Started === null && runner.RasberryOneIn === null)
+  }
   }
 })
