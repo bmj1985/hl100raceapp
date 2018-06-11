@@ -2,11 +2,11 @@
     <v-container class="aid-station">
       <v-layout column align-center class="logo">
         <h1><span>{{title_span1}}</span> {{title}} <span>{{title_span2}}</span></h1>
-        <div class="text-xs-center warning" >
-          <h2>Under Construction</h2>
+        <div class="text-xs-center">
+            {{$route.params.name}}
         </div>
         <div class="text-xs-center aid-link">
-          <router-link class="nav-link-aid" :to="{ name: 'Access'}">
+          <router-link class="nav-link-aid" :to="{ name: 'PickAidStation'}">
             <v-btn round color="secondary" class="btn-aid" large dark>
               Back
             </v-btn>
@@ -18,9 +18,10 @@
 
 <script>
 export default {
-  name: 'AidStation',
-  data () {
+  name: 'PickAidStation',
+  data: () => {
     return {
+      aidStations: [{ name: 'Raspberry' }, { name: 'Antero' }],
       title: 'LONESOME',
       title_span1: 'HIGH',
       title_span2: '100'
@@ -30,6 +31,10 @@ export default {
 </script>
 
 <style scoped>
+.links {
+  display: 'flex';
+  flex-wrap: 'wrap';
+}
 span {
   font-weight: 400;
 }
@@ -45,10 +50,10 @@ h2 {
   padding-top: 45px;
 }
 .aid-link {
- margin-top: 250px;
+  margin-top: 250px;
 }
 .nav-link-aid .btn-aid {
-  color: #A97C54;
+  color: #a97c54;
   font-size: 2rem;
   height: 3rem;
   width: 10rem;
