@@ -13,9 +13,9 @@
               Runner Tracking List
             </v-btn>
           </router-link>
-          <router-link class="nav-link" :to="{ name: 'AidStation'}">
+          <router-link class="nav-link" :to="{ name: 'PickAidStation'}">
             <v-btn round color="taupe" large dark>
-              Aid Station Form
+              Aid Stations
             </v-btn>
           </router-link>
         </div>
@@ -33,7 +33,7 @@
 <script>
 export default {
   name: 'Access',
-  data () {
+  data() {
     return {
       title: 'LONESOME',
       title_span1: 'HIGH',
@@ -55,7 +55,7 @@ span {
   font-weight: 400;
 }
 .tri-links {
-    display: flex;
+  display: flex;
   margin-top: 100px;
   flex-direction: column;
   margin-top: 100px;
@@ -64,7 +64,7 @@ span {
   margin-bottom: 30px;
 }
 .home-link {
- margin-top: 140px;
+  margin-top: 140px;
 }
 .nav-link .btn {
   color: #303131;
@@ -79,7 +79,7 @@ span {
   text-decoration: none;
 }
 .nav-link-home .btn-home {
-  color: #A97C54;
+  color: #a97c54;
   font-size: 2rem;
   height: 5rem;
   width: 15rem;
