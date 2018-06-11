@@ -7,18 +7,31 @@ const BASE_URL = 'https://hl100-runnertracking.herokuapp.com/api/beta/runners'
 
 export default new Vuex.Store({
   state: {
-    runners: []
+    runners: [],
+    aidStations: [
+      { code: 'ra1', name: 'Rasberry' },
+      { code: 'ant', name: 'Antero' },
+      { code: 'ste', name: 'St. Elmo' },
+      { code: 'cot', name: 'Cottonwood' },
+      { code: 'han', name: 'Hancock' },
+      { code: 'los', name: 'Lost Wonder' },
+      { code: 'pur', name: 'Purgatory' },
+      { code: 'mon', name: 'Monarch' },
+      { code: 'foo', name: 'Fooses' },
+      { code: 'bla', name: 'Blankes' },
+      { code: 'ra2', name: 'Rasberry Two' }
+    ]
   },
   mutations: {
-    listRunners (state, payload) {
+    listRunners(state, payload) {
       state.runners = payload
     }
   },
   actions: {
-    listRunners (store) {
+    listRunners(store) {
       fetch(`${BASE_URL}`)
         .then(response => response.json())
-        .then((runners) => {
+        .then(runners => {
           store.commit('listRunners', runners)
         })
     }

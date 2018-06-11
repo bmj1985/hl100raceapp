@@ -3,8 +3,8 @@
       <v-layout v-bind="layout" wrap>
           <v-flex  v-for="aidStation in aidStations" v-bind="itemLayout">
             <v-card dark class="aid-station" >
-              <router-link class="nav-link" :to="{ name: 'AidStation', params: {name: stripSpaces(aidStation)}}">
-                  <v-card-text>{{aidStation}}</v-card-text>
+              <router-link class="nav-link" :to="{ name: 'AidStation', params: {code: aidStation.code}}">
+                  <v-card-text>{{aidStation.name}}</v-card-text>
               </router-link>
             </v-card>
           </v-flex>
@@ -17,25 +17,15 @@ export default {
   name: 'PickAidStation',
   data: () => {
     return {
-      aidStations: [
-        'Rasberry',
-        'Antero',
-        'St. Elmo',
-        'Cottonwood',
-        'Hancock',
-        'Lost Wonder',
-        'Purgatory',
-        'Monarch',
-        'Fooses',
-        'Blankes',
-        'Rasberry Two'
-      ],
       title: 'LONESOME',
       title_span1: 'HIGH',
       title_span2: '100'
     }
   },
   computed: {
+    aidStations() {
+      return this.$store.state.aidStations
+    },
     layout() {
       const binding = {}
       if (this.$vuetify.breakpoint.smAndDown) binding.column = true

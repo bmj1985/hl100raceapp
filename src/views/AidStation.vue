@@ -3,7 +3,7 @@
       <v-layout column align-center class="logo">
         <h1><span>{{title_span1}}</span> {{title}} <span>{{title_span2}}</span></h1>
         <div class="text-xs-center">
-            {{$route.params.name}}
+            {{$route.params.code}}
         </div>
         <div class="text-xs-center aid-link">
           <router-link class="nav-link-aid" :to="{ name: 'PickAidStation'}">
@@ -21,10 +21,14 @@ export default {
   name: 'PickAidStation',
   data: () => {
     return {
-      aidStations: [{ name: 'Raspberry' }, { name: 'Antero' }],
       title: 'LONESOME',
       title_span1: 'HIGH',
       title_span2: '100'
+    }
+  },
+  computed: {
+    runners() {
+      return this.$store.state.runners
     }
   }
 }
