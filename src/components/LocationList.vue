@@ -30,9 +30,6 @@ export default {
     }
   },
   computed: {
-      zoneOne () {
-          return this.$store.state.runners.filter(runner => runner.Started === null && runner.RasberryOneIn === null)
-      }
   }
 }
 </script>

@@ -59,7 +59,7 @@ export default {
   width: 100vw;
   overflow: scroll;
 }
-#runnerlist {
+#locationlist {
   height: 65vh;
   overflow: scroll;
 }

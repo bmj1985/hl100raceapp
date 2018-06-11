@@ -1,16 +1,16 @@
 <template>
     <v-container fluid class="stat-bar mx-0" grid-list-xs text-xs-center>
     <v-layout row nowrap>
-      <v-flex v-for="aidStation in aidStation.slice(arrayBegin, arrayEnd)" grid-list-xs>
-        <v-card>
+      <v-flex v-for="aidStation in aidStation.slice(arrayBegin, arrayEnd)" grid-list-xs justify-center>
+        <v-card height="150px">
           <v-card-text class="ma-1 pa-0 title text-xs-center">{{aidStation.name}}</v-card-text>
           <v-card-text class="pa-1 ma-1 text-xs-center">
-              <div class="headline mb-2">{{aidStation.numberOfRunners}}</div>
-              <div v-if="aidStation.timeLeft != null">{{ aidStation.timeLeft }}</div>
+              <div class="headline ma-0">{{aidStation.numberOfRunners}}</div>
           </v-card-text>
-          <v-card-actions class="ma-1 pa-0">
+          <v-card-actions class="ma-0 pa-0">
             <v-btn left class="ma-0 pa-0" flat color="orange">Details</v-btn>
           </v-card-actions>
+          <div v-if="aidStation.timeLeft != null">{{ aidStation.timeLeft }}</div>
         </v-card>
         </v-flex>
     </v-layout>
@@ -117,8 +117,14 @@ aidStation: [{ name: 'Zone 1',
 }]
 }
 },
+created () {
+    this.$store.dispatch('getAidStationCutoffs')
+},
 computed: {
-...mapGetters(['zoneOne'])
+    aidStationCuttoffs () {
+    return this.$store.state.aidStationCuttoffs
+    },
+...mapGetters(['zoneOne'])    
 },
 methods: {
     timeLeft (time) {
@@ -132,3 +138,8 @@ methods: {
 }
 }
 </script>
+<style scoped>
+.statCard {
+    min-height: 120px;
+}
+</style>
