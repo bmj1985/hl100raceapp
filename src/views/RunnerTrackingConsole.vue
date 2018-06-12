@@ -16,7 +16,8 @@
     <StatBar :arrayBegin="0" :arrayEnd="14"></StatBar>
      <v-layout row>
      <img id="coursemap" src="../assets/courseMap.png" />
-    <RunnerList id="runnerlist" :runners="runners"/>
+    <!-- <RunnerList id="runnerlist" :runners="runners"/> -->
+    <LocationList id="locationlist" :runners="runners"/>
     </v-layout>
     <StatBar :arrayBegin="14" :arrayEnd="27"></StatBar>
     </v-container>
@@ -25,11 +26,12 @@
 
 <script>
 import RunnerList from '@/components/RunnerList'
+import LocationList from '@/components/LocationList'
 import StatBar from '@/components/StatBar'
 export default {
   name: 'RunnerTrackingConsole',
   components: {
-    RunnerList, StatBar
+    RunnerList, StatBar, LocationList
   },
   data () {
     return {
@@ -57,7 +59,7 @@ export default {
   width: 100vw;
   overflow: scroll;
 }
-#runnerlist {
+#locationlist {
   height: 65vh;
   overflow: scroll;
 }
