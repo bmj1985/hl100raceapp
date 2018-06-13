@@ -19,7 +19,7 @@ export default {
     this.$store.dispatch('listRunners')
   },
   computed: {
-    runners() {
+    runners () {
       return this.$store.state.runners
     },
   },
