@@ -16,8 +16,8 @@
     <StatBar :arrayBegin="0" :arrayEnd="14"></StatBar>
      <v-layout row>
      <img id="coursemap" src="../assets/courseMap.png" />
-    <!-- <RunnerList id="runnerlist" :runners="runners"/> -->
-    <LocationList id="locationlist" :runners="runners"/>
+    <RunnerList id="runnerlist" :runners="runners"/>
+    <!-- <LocationList id="locationlist" :runners="runners"/> -->
     </v-layout>
     <StatBar :arrayBegin="14" :arrayEnd="27"></StatBar>
     </v-container>
@@ -33,13 +33,17 @@ export default {
   components: {
     RunnerList,
     StatBar,
+<<<<<<< HEAD
     LocationList
+=======
+    LocationList,
+>>>>>>> c6ec08d10068ee23b106e3af790d53857b05ec65
   },
   data() {
     return {
       title: 'LONESOME',
       title_span1: 'HIGH',
-      title_span2: '100'
+      title_span2: '100',
     }
   },
   created() {
@@ -48,8 +52,8 @@ export default {
   computed: {
     runners() {
       return this.$store.state.runners
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -63,6 +67,9 @@ export default {
 }
 #locationlist {
   height: 65vh;
+  overflow: scroll;
+}
+#runnerlist {
   overflow: scroll;
 }
 span {

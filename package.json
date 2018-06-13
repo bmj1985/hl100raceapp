@@ -30,11 +30,15 @@
     "@vue/eslint-config-standard": "^3.0.0-beta.15",
     "@vue/test-utils": "^1.0.0-beta.16",
     "chai": "^4.1.2",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-standard": "^3.1.0",
     "vue-template-compiler": "^2.5.16"
   },
   "prettier": {
     "singleQuote": true,
-    "semi": false
+    "semi": false,
+    "trailingComma": "es5",
+    "bracketSpacing": true
   },
   "browserslist": [
     "> 1%",

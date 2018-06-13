@@ -21,16 +21,15 @@ export default {
           text: 'Name',
           align: 'left',
           sortable: true,
-          value: 'name'
+          value: 'name',
         },
         { text: 'Bib Number', align: 'center', value: 'bibNumber' },
         { text: 'Time In', align: 'center', value: 'Started' },
-        { text: 'Duration at Aid Station', align: 'center', value: 'Duration' }
-      ]
+        { text: 'Duration at Aid Station', align: 'center', value: 'Duration' },
+      ],
     }
   },
-  computed: {
-  }
+  computed: {},
 }
 </script>
 <style scoped>

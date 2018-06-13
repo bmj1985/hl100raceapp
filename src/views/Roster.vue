@@ -44,49 +44,44 @@ export default {
   name: 'Roster',
   data () {
     return {
-      apiUrl: 'https://hl100-runnertracking.herokuapp.com/api/beta/runners',
       title: 'RUNNERS',
       title_span1: 'TRAIL',
       title_span2: 'ROSTER',
       search: '',
-      runners: [],
-      headers: [{
-        text: 'Bib #',
-        align: 'left',
-        sortable: true,
-        value: 'bibNumber'
-      },
-      {
-        text: 'Name',
-        align: 'left',
-        sortable: true,
-        value: 'name'
-      },
-      {
-        text: 'Shoe Bath',
-        align: 'left',
-        sortable: false,
-        value: 'shoeBath'
-      },
-      {
-        text: 'Shirt Size',
-        align: 'left',
-        sortable: false,
-        value: 'shirtSize'
-      },
-      ]  
+      headers: [
+        {
+          text: 'Bib #',
+          align: 'left',
+          sortable: true,
+          value: 'bibNumber'
+        },
+        {
+          text: 'Name',
+          align: 'left',
+          sortable: true,
+          value: 'name'
+        },
+        {
+          text: 'Shoe Bath',
+          align: 'left',
+          sortable: false,
+          value: 'shoeBath'
+        },
+        {
+          text: 'Shirt Size',
+          align: 'left',
+          sortable: false,
+          value: 'shirtSize'
+        }
+      ]
     }
   },
-  mounted () {
-    this.getDataFromDatabase()
+  created () {
+    this.$store.dispatch('listRunners')
   },
-  methods: {
-    getDataFromDatabase () {
-      fetch(this.apiUrl)
-        .then(response => response.json())
-        .then(response => {
-          this.runners = response
-        })
+  computed: {
+    runners () {
+      return this.$store.state.runners
     }
   }
 }
@@ -105,7 +100,7 @@ div.card {
 }
 .page-header {
   border: 6px solid #848181;
-  background-color: #5B6789;
+  background-color: #5b6789;
   padding: 0;
   margin-bottom: 20px;
   width: 100%;
@@ -133,7 +128,7 @@ span {
 }
 
 .nav-link-roster .btn-roster {
-  color: #A97C54;
+  color: #a97c54;
   font-size: 2rem;
   height: 3rem;
   width: 10rem;
