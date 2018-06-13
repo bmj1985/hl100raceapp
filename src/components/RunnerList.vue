@@ -153,4 +153,7 @@ export default {
 }
 </script>
 <style scoped>
+.elevation-1 {
+  max-height: 80vh;
+}
 </style>

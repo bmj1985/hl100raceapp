@@ -1,7 +1,7 @@
 <template>
     <v-container class="footer">
         <v-footer id="footer" :fixed="fixed" app>
-          <span id="copyright">&copy; 2018 Tin Cup Software</span>
+          <span id="copyright">&copy; 2018 High Lonesome 100</span>
         </v-footer>
     </v-container>
 </template>
