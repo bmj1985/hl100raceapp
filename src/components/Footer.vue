@@ -11,9 +11,9 @@ export default {
   name: 'Footer',
   data () {
     return {
-      fixed: false
+      fixed: false,
     }
-  }
+  },
 }
 </script>
 
@@ -21,7 +21,7 @@ export default {
 <style scoped>
 #footer {
   margin: 0;
-  background-color: #A97C54;
+  background-color: #a97c54;
   opacity: 0.7;
   justify-content: center;
 }
