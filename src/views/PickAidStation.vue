@@ -17,25 +17,15 @@ export default {
   name: 'PickAidStation',
   data: () => {
     return {
-      aidStations: [
-        'Rasberry',
-        'Antero',
-        'St. Elmo',
-        'Cottonwood',
-        'Hancock',
-        'Lost Wonder',
-        'Purgatory',
-        'Monarch',
-        'Fooses',
-        'Blankes',
-        'Rasberry Two'
-      ],
       title: 'LONESOME',
       title_span1: 'HIGH',
       title_span2: '100'
     }
   },
   computed: {
+    aidStations () {
+      return this.$store.state.locations.filter(location => location.type === 'aidStation').map(aidStation => aidStation.name)
+    },
     layout() {
       const binding = {}
       if (this.$vuetify.breakpoint.smAndDown) binding.column = true

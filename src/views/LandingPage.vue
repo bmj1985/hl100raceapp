@@ -32,12 +32,6 @@ export default {
       title_h1: 'High Lonesome 100',
       title_h2: 'Runner Management System'
     }
-  },
-  mounted () {
-
-  },
-  methods: {
-
   }
 }
 </script>
@@ -57,7 +51,7 @@ export default {
 .upper-wrap {
   display: flex;
   justify-content: center;
-  background-color: #3F4040;
+  background-color: #3f4040;
   /* background-color: blue; */
   margin: 0;
   height: 50%;
@@ -68,23 +62,24 @@ img#logo {
   width: 100%;
 }
 h1 {
-    margin-top: 2vh;
-    font-size: 4rem;
+  margin-top: 2vh;
+  font-size: 4rem;
 }
 h2 {
   font-size: 2.5rem;
   margin-bottom: 2vh;
 }
-h1, h2 {
-  background-color: #A97C54;
-  color: #3F4040;
+h1,
+h2 {
+  background-color: #a97c54;
+  color: #3f4040;
   width: 100vw;
   text-align: center;
   font-weight: normal;
   font-family: 'Lato', sans-serif;
 }
 .nav-link-home .btn-home {
-  color: #A97C54;
+  color: #a97c54;
   font-size: 2rem;
   height: 5rem;
   width: 15rem;
@@ -93,7 +88,6 @@ h1, h2 {
 .nav-link-home {
   text-decoration: none;
 }
-
 
 /* .splash-page {
   background-color: #3F4040;
@@ -150,5 +144,4 @@ li {
 a {
   color: #42b983;
 } */
-
 </style>

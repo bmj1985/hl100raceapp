@@ -13,19 +13,18 @@ import Footer from '@/components/Footer'
 export default {
   name: 'App',
   components: {
-    Footer
+    Footer,
   },
-  created() {
+  created () {
     this.$store.dispatch('listRunners')
   },
   computed: {
     runners() {
       return this.$store.state.runners
-    }
-  }
+    },
+  },
 }
 </script>
-
 
 <style>
 div#app {
