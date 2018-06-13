@@ -18,8 +18,7 @@
   </v-container>
 </template>
 <script>
-import { mapGetters, mapState } from 'vuex'
-import moment from 'moment'
+import { mapState } from 'vuex'
 export default {
   name: 'StatBar',
   props: ['arrayBegin', 'arrayEnd'],
@@ -31,8 +30,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-.statCard {
-  min-height: 120px;
-}
-</style>
