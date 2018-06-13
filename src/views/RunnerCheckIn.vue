@@ -87,7 +87,7 @@ export default {
     size: []
   }),
   methods: {
-    addNewRunner () {
+    addNewRunner() {
       fetch(this.apiUrl, {
         headers: new Headers({
           'Content-Type': 'application/json'
@@ -103,22 +103,22 @@ export default {
           medication: this.medication
         })
       })
-      .then(response => response.json())
-      .then(() => this.confirmSubmission())
-      .then(() => this.clear())
-      .then(() => {
-        setTimeout(() => {
-          this.$router.push({
-            name: 'RunnerCheckIn'
-          })
-        }, 1500)
-      })
-      .catch(err => console.log('Request failed', err))
+        .then(response => response.json())
+        .then(() => this.confirmSubmission())
+        .then(() => this.clear())
+        .then(() => {
+          setTimeout(() => {
+            this.$router.push({
+              name: 'RunnerCheckIn'
+            })
+          }, 1500)
+        })
+        .catch(err => console.log('Request failed', err))
     },
-    clear () {
+    clear() {
       this.$refs.form.reset()
     },
-    confirmSubmission () {
+    confirmSubmission() {
       this.submissionText = 'Submission successful!'
       setTimeout(() => {
         this.submissionText = ''
@@ -137,7 +137,7 @@ h1 {
   margin-top: 5%;
   padding: 5% 10%;
   color: white;
-  background-color: #CBA37F;
+  background-color: #cba37f;
 }
 
 #runnercheckinwrapper {

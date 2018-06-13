@@ -31,20 +31,22 @@ import StatBar from '@/components/StatBar'
 export default {
   name: 'RunnerTrackingConsole',
   components: {
-    RunnerList, StatBar, LocationList
+    RunnerList,
+    StatBar,
+    LocationList
   },
-  data () {
+  data() {
     return {
       title: 'LONESOME',
       title_span1: 'HIGH',
       title_span2: '100'
     }
   },
-  created () {
+  created() {
     this.$store.dispatch('listRunners')
   },
   computed: {
-    runners () {
+    runners() {
       return this.$store.state.runners
     }
   }
@@ -79,7 +81,7 @@ span {
 }
 
 .nav-link-trail .btn-trail {
-  color: #A97C54;
+  color: #a97c54;
   font-size: 2rem;
   height: 3rem;
   width: 10rem;

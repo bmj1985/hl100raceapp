@@ -1,7 +1,7 @@
 <template>
   <v-app class="app">
     <v-content :runners="runners">
-      <router-view/>
+     <router-view/>
     </v-content>
     <Footer />
   </v-app>
@@ -15,25 +15,24 @@ export default {
   components: {
     Footer
   },
-  created () {
-        this.$store.dispatch("listRunners")
-    },
+  created() {
+    this.$store.dispatch('listRunners')
+  },
   computed: {
-        runners (){
-            return this.$store.state.runners
-        }
+    runners() {
+      return this.$store.state.runners
     }
+  }
 }
 </script>
 
 
 <style>
 div#app {
-  background-color: #A97C54;
-  }
+  background-color: #a97c54;
+}
 #content {
   height: 80vh;
   width: 100vw;
 }
-
 </style>
