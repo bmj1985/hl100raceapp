@@ -22,6 +22,11 @@ export default new Vuex.Store({
       { code: 'ra2', name: 'Rasberry Two' }
     ]
   },
+  getters: {
+    aidStationByCode: state => code => {
+      return state.aidStations.find(aidStation => aidStation.code === code)
+    }
+  },
   mutations: {
     listRunners(state, payload) {
       state.runners = payload
