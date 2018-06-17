@@ -29,13 +29,14 @@
             flat
           ></v-text-field>
             <v-layout row wrap mt-3 mb-4>
-                <v-btn  v-for="(n,i) in 10" key="i" v-on:click="appendBibNum(i)" color="white"  fab="true" class="num">{{i}}</v-btn>
+                <v-btn  v-for="(n,i) in 10" key="{{i}}" v-on:click="appendBibNum(i)" color="white"  fab="true" class="num">{{i}}</v-btn>
                 <v-btn v-on:click="clearSearch" color="white"  fab="true" class="num">Clear</v-btn>
             </v-layout>
-            <v-card v-if="searchBibNum.length > 0" mb-3>
+            <v-card v-if="foundRunner" mb-3>
               <v-card-title primary-title>
-                <div class="headline">{{searchBibNum}}</div>
+                <div class="headline">{{foundRunner.bibNumber}}</div>
               </v-card-title>
+              <span>{{foundRunner.name}}</span>
               <v-card-actions>
                 <v-btn>In</v-btn>
                 <v-btn>Leaving</v-btn>
@@ -72,6 +73,9 @@ export default {
     }
   },
   computed: {
+    foundRunner() {
+      return this.$store.getters.runnerByBibNum(this.searchBibNum)
+    },
     aidStation() {
       return this.$store.getters.aidStationByCode(this.$route.params.code)
     },

@@ -44,7 +44,6 @@ export default {
   name: 'Roster',
   data() {
     return {
-      apiUrl: 'https://hl100-runnertracking.herokuapp.com/api/beta/runners',
       title: 'RUNNERS',
       title_span1: 'TRAIL',
       title_span2: 'ROSTER',
@@ -76,18 +75,6 @@ export default {
           value: 'shirtSize'
         }
       ]
-    }
-  },
-  mounted() {
-    this.getDataFromDatabase()
-  },
-  methods: {
-    getDataFromDatabase() {
-      fetch(this.apiUrl)
-        .then(response => response.json())
-        .then(response => {
-          this.runners = response
-        })
     }
   },
   computed: {

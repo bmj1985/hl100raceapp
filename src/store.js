@@ -25,6 +25,10 @@ export default new Vuex.Store({
   getters: {
     aidStationByCode: state => code => {
       return state.aidStations.find(aidStation => aidStation.code === code)
+    },
+    runnerByBibNum: state => bibNum => {
+      if (!state.runners) return null
+      return state.runners.find(runner => runner.bibNumber === bibNum)
     }
   },
   mutations: {
