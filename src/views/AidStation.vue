@@ -1,8 +1,11 @@
 <template>
-    <v-container class="aid-station">
+    <v-container class="aid-station" style="padding: 15px;">
+  
       <v-layout column align-center justify-space-between>
-        <h1> <span> {{title}} </span></h1>
-        <div>
+        <v-layout row align-center justify-center style="width: 100%">
+          <div> <span> {{title}} </span></div>
+        </v-layout>
+              <div>
     
         <v-tabs
           slot="extension"
@@ -13,7 +16,7 @@
         >
           <v-tab key="all">Find Bib</v-tab>
           <v-tab key="checkin">In</v-tab>
-          <v-tab key="left">Leaving</v-tab>
+          <v-tab key="left">Left</v-tab>
           <v-tab key="left">History</v-tab>
         </v-tabs>
  
@@ -44,7 +47,7 @@
                   <div>12:40</div>
                 </v-layout>
                 <v-layout column>
-                  <v-btn small>Leaving</v-btn>
+                  <v-btn small>Left</v-btn>
                   <div>12:40</div>
                 </v-layout>
                 <v-layout column>
@@ -57,11 +60,12 @@
         </v-tab-item>
       </v-tabs-items>
     </div>
-        <router-link class="nav-link-aid" :to="{ name: 'PickAidStation'}">
-          <v-btn round color="secondary" small dark>
-            Back
-          </v-btn>
-        </router-link>
+              <router-link style="margin-top: 10px;" class="nav-link-aid"  :to="{ name: 'PickAidStation'}">
+            <v-btn  round color="secondary"  small dark>
+              Back
+            </v-btn>
+          </router-link>
+
       </v-layout>
     </v-container>
 </template>
