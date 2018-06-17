@@ -20,32 +20,41 @@
       <v-tabs-items v-model="tabs">
         <v-tab-item>
           <v-layout column>
-          <v-text-field
-            prepend-icon="search"
-            label="Search Bib #"
-            solo-inverted
-            disabled
-            v-model="searchBibNum"
-            flat
-          ></v-text-field>
+            <v-text-field
+              prepend-icon="search"
+              label="Search Bib #"
+              solo-inverted
+              type="number"
+              v-model="searchBibNum"
+              flat
+            ></v-text-field>
             <v-layout row wrap mt-3 mb-4>
                 <v-btn  v-for="(n,i) in 10" key="{{i}}" v-on:click="appendBibNum(i)" color="white"  fab="true" class="num">{{i}}</v-btn>
+                <v-btn v-on:click="backSearch" color="white"  fab="true" class="num">Back</v-btn>
                 <v-btn v-on:click="clearSearch" color="white"  fab="true" class="num">Clear</v-btn>
             </v-layout>
-            <v-card v-if="foundRunner" mb-3>
-              <v-card-title primary-title>
-                <div class="headline">{{foundRunner.bibNumber}}</div>
-              </v-card-title>
-              <span>{{foundRunner.name}}</span>
-              <v-card-actions>
-                <v-btn>In</v-btn>
-                <v-btn>Leaving</v-btn>
-                <v-btn>Sync</v-btn>
-                <v-btn>Copy Sync</v-btn>
-              </v-card-actions>
-            </v-card>
+            <div class="runner" v-if="foundRunner">
+              <v-layout row>
+                <v-layout column>
+                  <div class="headline">{{foundRunner.bibNumber}}</div>
+                  <div>{{foundRunner.name}}</div>
+                </v-layout>
+                <v-layout column>
+                  <v-btn small>In</v-btn>
+                  <div>12:40</div>
+                </v-layout>
+                <v-layout column>
+                  <v-btn small>Leaving</v-btn>
+                  <div>12:40</div>
+                </v-layout>
+                <v-layout column>
+                  <v-btn small>Copy Sync</v-btn>
+                  <div>Copied</div>
+                </v-layout>
+            </v-layout>
+            </div>
           </v-layout>
-          </v-tab-item>
+        </v-tab-item>
       </v-tabs-items>
     </div>
         <router-link class="nav-link-aid" :to="{ name: 'PickAidStation'}">
@@ -63,13 +72,8 @@ export default {
   data: () => {
     return {
       searchBibNum: '',
-      searchRunnerName: 'John Wright',
-      title_span1: 'HIGH',
-      title_span2: '100',
       tabs: null,
-      bibNumSnackbar: false,
-      text:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+      bibNumSnackbar: false
     }
   },
   computed: {
@@ -95,12 +99,25 @@ export default {
     },
     clearSearch() {
       this.searchBibNum = ''
+    },
+    backSearch() {
+      if (this.searchBibNum.length <= 0) return
+      this.searchBibNum = this.searchBibNum.substring(
+        0,
+        this.searchBibNum.length - 1
+      )
     }
   }
 }
 </script>
 
 <style scoped>
+.runner {
+  background-color: #5b6789;
+  color: white;
+  padding: 5px;
+}
+
 .search {
   margin-top: 10px;
 }
