@@ -13,14 +13,13 @@ import Footer from '@/components/Footer'
 export default {
   name: 'App',
   components: {
-    Footer
+    Footer,
   },
   created() {
     this.$store.dispatch('listRunners')
-  }
+  },
 }
 </script>
-
 
 <style>
 div#app {

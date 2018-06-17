@@ -5,7 +5,7 @@
       </div>
       <v-layout v-bind="layout" wrap>
           <v-flex  v-for="aidStation in aidStations" v-bind="itemLayout" >
-            <v-card dark class="aid-station" >
+            <v-card key="aidStation.code" dark class="aid-station" >
               <router-link class="nav-link" :to="{ name: 'AidStation', params: {code: aidStation.code}}">
                   <v-card-text class="card-text">{{aidStation.name}}</v-card-text>
               </router-link>
@@ -26,12 +26,12 @@ export default {
   name: 'PickAidStation',
   data: () => {
     return {
-      title: 'PICK AID STATION'
+      title: 'HIGH LONESOME 100',
     }
   },
   computed: {
     aidStations() {
-      return this.$store.state.aidStations
+      return this.$store.getters.aidStations
     },
     layout() {
       const binding = {}
@@ -43,13 +43,13 @@ export default {
       if (this.$vuetify.breakpoint.xs) binding.xs12 = true
       else binding.xs4 = true
       return binding
-    }
+    },
   },
   methods: {
     stripSpaces(str) {
       return str.replace(/ /g, '')
-    }
-  }
+    },
+  },
 }
 </script>
 

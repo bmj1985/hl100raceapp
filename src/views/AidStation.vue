@@ -17,7 +17,7 @@
           <v-tab key="all">Find Bib</v-tab>
           <v-tab key="checkin">In</v-tab>
           <v-tab key="left">Left</v-tab>
-          <v-tab key="left">History</v-tab>
+          <v-tab key="history">History</v-tab>
         </v-tabs>
  
       <v-tabs-items v-model="tabs">
@@ -32,9 +32,9 @@
               flat
             ></v-text-field>
             <v-layout row wrap mt-3 mb-4>
-                <v-btn  v-for="(n,i) in 10" key="{{i}}" v-on:click="appendBibNum(i)" color="white"  fab="true" class="num">{{i}}</v-btn>
-                <v-btn v-on:click="backSearch" color="white"  fab="true" class="num">Back</v-btn>
-                <v-btn v-on:click="clearSearch" color="white"  fab="true" class="num">Clear</v-btn>
+                <v-btn  v-for="(n,i) in 10" v-on:click="appendBibNum(i)" color="white"  fab class="num">{{i}}</v-btn>
+                <v-btn v-on:click="backSearch" color="white"  fab class="num">Back</v-btn>
+                <v-btn v-on:click="clearSearch" color="white"  fab class="num">Clear</v-btn>
             </v-layout>
             <div class="runner" v-if="foundRunner">
               <v-layout row>
@@ -77,7 +77,7 @@ export default {
     return {
       searchBibNum: '',
       tabs: null,
-      bibNumSnackbar: false
+      bibNumSnackbar: false,
     }
   },
   computed: {
@@ -92,7 +92,7 @@ export default {
     },
     runners() {
       return this.$store.state.runners
-    }
+    },
   },
   methods: {
     appendBibNum(num) {
@@ -110,8 +110,8 @@ export default {
         0,
         this.searchBibNum.length - 1
       )
-    }
-  }
+    },
+  },
 }
 </script>
 

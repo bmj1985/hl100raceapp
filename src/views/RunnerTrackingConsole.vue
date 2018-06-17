@@ -17,6 +17,7 @@
      <v-layout row>
      <img id="coursemap" src="../assets/courseMap.png" />
     <RunnerList id="runnerlist" :runners="runners"/>
+    <!-- <LocationList id="locationlist" :runners="runners"/> -->
     </v-layout>
     <StatBar :arrayBegin="14" :arrayEnd="27"></StatBar>
     </v-container>
@@ -25,27 +26,30 @@
 
 <script>
 import RunnerList from '@/components/RunnerList'
+import LocationList from '@/components/LocationList'
 import StatBar from '@/components/StatBar'
 export default {
   name: 'RunnerTrackingConsole',
   components: {
-    RunnerList, StatBar
+    RunnerList,
+    StatBar,
+    LocationList,
   },
-  data () {
+  data() {
     return {
       title: 'LONESOME',
       title_span1: 'HIGH',
-      title_span2: '100'
+      title_span2: '100',
     }
   },
-  created () {
+  created() {
     this.$store.dispatch('listRunners')
   },
   computed: {
-    runners () {
+    runners() {
       return this.$store.state.runners
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -57,8 +61,11 @@ export default {
   width: 100vw;
   overflow: scroll;
 }
-#runnerlist {
+#locationlist {
   height: 65vh;
+  overflow: scroll;
+}
+#runnerlist {
   overflow: scroll;
 }
 span {
@@ -77,7 +84,7 @@ span {
 }
 
 .nav-link-trail .btn-trail {
-  color: #A97C54;
+  color: #a97c54;
   font-size: 2rem;
   height: 3rem;
   width: 10rem;

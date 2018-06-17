@@ -48,40 +48,39 @@ export default {
       title_span1: 'TRAIL',
       title_span2: 'ROSTER',
       search: '',
-      runners: [],
       headers: [
         {
           text: 'Bib #',
           align: 'left',
           sortable: true,
-          value: 'bibNumber'
+          value: 'bibNumber',
         },
         {
           text: 'Name',
           align: 'left',
           sortable: true,
-          value: 'name'
+          value: 'name',
         },
         {
           text: 'Shoe Bath',
           align: 'left',
           sortable: false,
-          value: 'shoeBath'
+          value: 'shoeBath',
         },
         {
           text: 'Shirt Size',
           align: 'left',
           sortable: false,
-          value: 'shirtSize'
-        }
-      ]
+          value: 'shirtSize',
+        },
+      ],
     }
   },
   computed: {
     runners() {
       return this.$store.state.runners
-    }
-  }
+    },
+  },
 }
 </script>
 

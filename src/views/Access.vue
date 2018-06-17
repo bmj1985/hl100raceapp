@@ -33,7 +33,7 @@
 <script>
 export default {
   name: 'Access',
-  data() {
+  data () {
     return {
       title: 'LONESOME',
       title_span1: 'HIGH',
