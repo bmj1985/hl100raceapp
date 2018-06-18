@@ -7,7 +7,7 @@
             {{location.name}}
           </v-card-text>
           <v-card-text class="ma-1 pa-0 headline text-xs-center">
-            {{location.numberOfRunners}}
+            {{numOfRunnersInLocation(location)}}
           </v-card-text>
           <v-card-text v-if="location.cutoff != null" class="pa-1 ma-1 text-xs-center">
             {{location.timeLeft}}
@@ -24,7 +24,12 @@ export default {
   name: 'StatBar',
   props: ['arrayBegin', 'arrayEnd'],
   created() {
-    this.$store.dispatch('timeLeft'), this.$store.dispatch('numberOfRunners')
+    this.$store.dispatch('timeLeft')
+  },
+  methods: {
+    numOfRunnersInLocation(location) {
+      return this.$store.getters.numOfRunnersInLocation(location.code)
+    },
   },
   computed: {
     ...mapState(['locations']),
