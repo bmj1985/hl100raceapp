@@ -1,17 +1,71 @@
 <template>
-    <v-container class="aid-station">
-      <v-layout column align-center class="logo">
-        <h1><span>{{title_span1}}</span> {{title}} <span>{{title_span2}}</span></h1>
-        <div class="text-xs-center">
-            {{$route.params.name}}
-        </div>
-        <div class="text-xs-center aid-link">
-          <router-link class="nav-link-aid" :to="{ name: 'PickAidStation'}">
-            <v-btn round color="secondary" class="btn-aid" large dark>
+    <v-container class="aid-station" style="padding: 15px;">
+  
+      <v-layout column align-center justify-space-between>
+        <v-layout row align-center justify-center style="width: 100%">
+          <div> <span> {{title}} </span></div>
+        </v-layout>
+              <div>
+    
+        <v-tabs
+          slot="extension"
+          v-model="tabs"
+          centered
+          slider-color="white"
+          color="transparent"
+        >
+          <v-tab key="all">Find Bib</v-tab>
+          <v-tab key="checkin">In</v-tab>
+          <v-tab key="left">Left</v-tab>
+          <v-tab key="history">History</v-tab>
+        </v-tabs>
+ 
+      <v-tabs-items v-model="tabs">
+        <v-tab-item>
+          <v-layout column>
+            <v-text-field
+              prepend-icon="search"
+              label="Search Bib #"
+              solo-inverted
+              type="number"
+              v-model="searchBibNum"
+              flat
+            ></v-text-field>
+            <v-layout row wrap mt-3 mb-4>
+                <v-btn  v-for="(n,i) in 10" v-on:click="appendBibNum(i)" color="white"  fab class="num">{{i}}</v-btn>
+                <v-btn v-on:click="backSearch" color="white"  fab class="num">Back</v-btn>
+                <v-btn v-on:click="clearSearch" color="white"  fab class="num">Clear</v-btn>
+            </v-layout>
+            <div class="runner" v-if="foundRunner">
+              <v-layout row>
+                <v-layout column>
+                  <div class="headline">{{foundRunner.bibNumber}}</div>
+                  <div>{{foundRunner.name}}</div>
+                </v-layout>
+                <v-layout column>
+                  <v-btn small>In</v-btn>
+                  <div>12:40</div>
+                </v-layout>
+                <v-layout column>
+                  <v-btn small>Left</v-btn>
+                  <div>12:40</div>
+                </v-layout>
+                <v-layout column>
+                  <v-btn small>Copy Sync</v-btn>
+                  <div>Copied</div>
+                </v-layout>
+            </v-layout>
+            </div>
+          </v-layout>
+        </v-tab-item>
+      </v-tabs-items>
+    </div>
+              <router-link style="margin-top: 10px;" class="nav-link-aid"  :to="{ name: 'PickAidStation'}">
+            <v-btn  round color="secondary"  small dark>
               Back
             </v-btn>
           </router-link>
-        </div>
+
       </v-layout>
     </v-container>
 </template>
@@ -21,16 +75,61 @@ export default {
   name: 'PickAidStation',
   data: () => {
     return {
-      aidStations: [{ name: 'Raspberry' }, { name: 'Antero' }],
-      title: 'LONESOME',
-      title_span1: 'HIGH',
-      title_span2: '100'
+      searchBibNum: '',
+      tabs: null,
+      bibNumSnackbar: false,
     }
-  }
+  },
+  computed: {
+    foundRunner() {
+      return this.$store.getters.runnerByBibNum(this.searchBibNum)
+    },
+    aidStation() {
+      return this.$store.getters.aidStationByCode(this.$route.params.code)
+    },
+    title() {
+      return this.aidStation.name.toUpperCase()
+    },
+    runners() {
+      return this.$store.state.runners
+    },
+  },
+  methods: {
+    appendBibNum(num) {
+      if (this.searchBibNum.length >= 3) {
+        return
+      }
+      this.searchBibNum += String(num)
+    },
+    clearSearch() {
+      this.searchBibNum = ''
+    },
+    backSearch() {
+      if (this.searchBibNum.length <= 0) return
+      this.searchBibNum = this.searchBibNum.substring(
+        0,
+        this.searchBibNum.length - 1
+      )
+    },
+  },
 }
 </script>
 
 <style scoped>
+.runner {
+  background-color: #5b6789;
+  color: white;
+  padding: 5px;
+}
+
+.search {
+  margin-top: 10px;
+}
+
+.num {
+  font-size: 16px;
+}
+
 .links {
   display: 'flex';
   flex-wrap: 'wrap';

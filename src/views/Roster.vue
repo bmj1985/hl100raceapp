@@ -42,7 +42,7 @@
 <script>
 export default {
   name: 'Roster',
-  data () {
+  data() {
     return {
       title: 'RUNNERS',
       title_span1: 'TRAIL',
@@ -53,37 +53,34 @@ export default {
           text: 'Bib #',
           align: 'left',
           sortable: true,
-          value: 'bibNumber'
+          value: 'bibNumber',
         },
         {
           text: 'Name',
           align: 'left',
           sortable: true,
-          value: 'name'
+          value: 'name',
         },
         {
           text: 'Shoe Bath',
           align: 'left',
           sortable: false,
-          value: 'shoeBath'
+          value: 'shoeBath',
         },
         {
           text: 'Shirt Size',
           align: 'left',
           sortable: false,
-          value: 'shirtSize'
-        }
-      ]
+          value: 'shirtSize',
+        },
+      ],
     }
-  },
-  created () {
-    this.$store.dispatch('listRunners')
   },
   computed: {
-    runners () {
+    runners() {
       return this.$store.state.runners
-    }
-  }
+    },
+  },
 }
 </script>
 

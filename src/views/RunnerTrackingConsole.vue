@@ -33,11 +33,7 @@ export default {
   components: {
     RunnerList,
     StatBar,
-<<<<<<< HEAD
-    LocationList
-=======
     LocationList,
->>>>>>> c6ec08d10068ee23b106e3af790d53857b05ec65
   },
   data() {
     return {
