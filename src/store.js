@@ -253,33 +253,37 @@ export default new Vuex.Store({
 
       const index = state.locations.indexOf(location)
 
-      state.runners.forEach(runner => {
-        if (location.type === 'aidStation') {
-          const aidStationName = location.name
-            .replace(/ /g, '')
-            .replace(/\./g, '')
+      let tester
+      if (location.type === 'aidStation') {
+        const aidStationName = location.name
+          .replace(/ /g, '')
+          .replace(/\./g, '')
 
+        tester = runner => {
           if (
             runner[`${aidStationName}In`] != null &&
             runner[`${aidStationName}Out` === null]
           ) {
             num++
           }
-        } else {
-          let zoneStart =
-            index === 0 ? 'Started' : `${state.locations[index - 1].name}Out`
-          let zoneEnd =
-            index === state.locations.length - 1
-              ? 'Finish'
-              : `${state.locations[index + 1].name}In`
-          zoneStart = zoneStart.replace(/ /g, '').replace(/\./g, '')
-          zoneEnd = zoneEnd.replace(/ /g, '').replace(/\./g, '')
+        }
+      } else {
+        let zoneStart =
+          index === 0 ? 'Started' : `${state.locations[index - 1].name}Out`
+        let zoneEnd =
+          index === state.locations.length - 1
+            ? 'Finish'
+            : `${state.locations[index + 1].name}In`
+        zoneStart = zoneStart.replace(/ /g, '').replace(/\./g, '')
+        zoneEnd = zoneEnd.replace(/ /g, '').replace(/\./g, '')
 
+        tester = runner => {
           if (runner[zoneStart] != null && runner[zoneEnd] === null) {
             num++
           }
         }
-      })
+      }
+      state.runners.forEach(tester)
       return num
     },
   },
