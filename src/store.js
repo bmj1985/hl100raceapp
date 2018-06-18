@@ -14,7 +14,6 @@ export default new Vuex.Store({
         name: 'Zone 1',
         code: 'z1',
         type: 'zone',
-        numberOfRunners: 0,
       },
       {
         code: 'ra1',
@@ -22,13 +21,11 @@ export default new Vuex.Store({
         cutoff: '2018-08-03 08:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0,
       },
       {
         name: 'Zone 2',
         code: 'z2',
         type: 'zone',
-        numberOfRunners: 0,
       },
       {
         code: 'ant',
@@ -36,13 +33,11 @@ export default new Vuex.Store({
         cutoff: '2018-08-03 13:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0,
       },
       {
         name: 'Zone 3',
         code: 'z3',
         type: 'zone',
-        numberOfRunners: 0,
       },
       {
         code: 'ste1',
@@ -50,13 +45,11 @@ export default new Vuex.Store({
         cutoff: '2018-08-03 15:30',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0,
       },
       {
         name: 'Zone 4',
         code: 'z4',
         type: 'zone',
-        numberOfRunners: 0,
       },
       {
         code: 'cot',
@@ -64,13 +57,11 @@ export default new Vuex.Store({
         cutoff: '2018-08-03 18:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0,
       },
       {
         name: 'Zone 5',
         code: 'z5',
         type: 'zone',
-        numberOfRunners: 0,
       },
       {
         code: 'ste2',
@@ -78,13 +69,11 @@ export default new Vuex.Store({
         cutoff: '2018-08-03 20:30',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0,
       },
       {
         name: 'Zone 6',
         code: 'z6',
         type: 'zone',
-        numberOfRunners: 0,
       },
       {
         code: 'han',
@@ -92,13 +81,11 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 01:30',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0,
       },
       {
         name: 'Zone 7',
         code: 'z7',
         type: 'zone',
-        numberOfRunners: 0,
       },
       {
         code: 'los',
@@ -106,26 +93,22 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 04:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0,
       },
       {
         name: 'Zone 8',
         code: 'z8',
         type: 'zone',
-        numberOfRunners: 0,
       },
       {
         code: 'pur',
         name: 'Purgatory',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0,
       },
       {
         name: 'Zone 9',
         code: 'z9',
         type: 'zone',
-        numberOfRunners: 0,
       },
       {
         code: 'mon',
@@ -133,13 +116,11 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 09:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0,
       },
       {
         name: 'Zone 10',
         code: 'z10',
         type: 'zone',
-        numberOfRunners: 0,
       },
       {
         code: 'foo',
@@ -147,13 +128,11 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 11:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0,
       },
       {
         name: 'Zone 11',
         code: 'z11',
         type: 'zone',
-        numberOfRunners: 0,
       },
       {
         code: 'bla',
@@ -161,13 +140,11 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 14:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0,
       },
       {
         name: 'Zone 12',
         code: 'z12',
         type: 'zone',
-        numberOfRunners: 0,
       },
       {
         code: 'ra2',
@@ -175,13 +152,11 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 16:45',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0,
       },
       {
         name: 'Zone 13',
         code: 'z13',
         type: 'zone',
-        numberOfRunners: 0,
       },
       {
         code: 'fin',
@@ -189,7 +164,6 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 18:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0,
       },
     ],
   },
