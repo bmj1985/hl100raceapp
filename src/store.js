@@ -271,7 +271,7 @@ export default new Vuex.Store({
           let zoneEnd =
             index === state.locations.length - 1
               ? 'Finish'
-              : `${state.locations[index + 1].name}Out`
+              : `${state.locations[index + 1].name}In`
           zoneStart = zoneStart.replace(/ /g, '').replace(/\./g, '')
           zoneEnd = zoneEnd.replace(/ /g, '').replace(/\./g, '')
 
