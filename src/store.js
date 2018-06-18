@@ -14,7 +14,7 @@ export default new Vuex.Store({
         name: 'Zone 1',
         code: 'z1',
         type: 'zone',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         code: 'ra1',
@@ -22,13 +22,13 @@ export default new Vuex.Store({
         cutoff: '2018-08-03 08:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         name: 'Zone 2',
         code: 'z2',
         type: 'zone',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         code: 'ant',
@@ -36,13 +36,13 @@ export default new Vuex.Store({
         cutoff: '2018-08-03 13:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         name: 'Zone 3',
         code: 'z3',
         type: 'zone',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         code: 'ste1',
@@ -50,13 +50,13 @@ export default new Vuex.Store({
         cutoff: '2018-08-03 15:30',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         name: 'Zone 4',
         code: 'z4',
         type: 'zone',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         code: 'cot',
@@ -64,13 +64,13 @@ export default new Vuex.Store({
         cutoff: '2018-08-03 18:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         name: 'Zone 5',
         code: 'z5',
         type: 'zone',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         code: 'ste2',
@@ -78,13 +78,13 @@ export default new Vuex.Store({
         cutoff: '2018-08-03 20:30',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         name: 'Zone 6',
         code: 'z6',
         type: 'zone',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         code: 'han',
@@ -92,13 +92,13 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 01:30',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         name: 'Zone 7',
         code: 'z7',
         type: 'zone',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         code: 'los',
@@ -106,26 +106,26 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 04:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         name: 'Zone 8',
         code: 'z8',
         type: 'zone',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         code: 'pur',
         name: 'Purgatory',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         name: 'Zone 9',
         code: 'z9',
         type: 'zone',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         code: 'mon',
@@ -133,13 +133,13 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 09:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         name: 'Zone 10',
         code: 'z10',
         type: 'zone',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         code: 'foo',
@@ -147,13 +147,13 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 11:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         name: 'Zone 11',
         code: 'z11',
         type: 'zone',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         code: 'bla',
@@ -161,13 +161,13 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 14:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         name: 'Zone 12',
         code: 'z12',
         type: 'zone',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         code: 'ra2',
@@ -175,13 +175,13 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 16:45',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         name: 'Zone 13',
         code: 'z13',
         type: 'zone',
-        numberOfRunners: 0
+        numberOfRunners: 0,
       },
       {
         code: 'fin',
@@ -189,15 +189,15 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 18:00',
         type: 'aidStation',
         timeLeft: '',
-        numberOfRunners: 0
-      }
-    ]
+        numberOfRunners: 0,
+      },
+    ],
   },
   mutations: {
-    listRunners (state, payload) {
+    listRunners(state, payload) {
       state.runners = payload
     },
-    timeLeft (state) {
+    timeLeft(state) {
       return state.locations.map(location => {
         const now = moment()
         const end = moment(location.cutoff)
@@ -212,184 +212,184 @@ export default new Vuex.Store({
           .padStart(2, '0')}`
       })
     },
-    zoneOneRunners (state) {
+    zoneOneRunners(state) {
       return state.locations
         .filter(location => location.code === 'z1')
         .map(location => {
           location.numberOfRunners = this.getters.zoneOne.length
         })
     },
-    zoneTwoRunners (state) {
+    zoneTwoRunners(state) {
       return state.locations
         .filter(location => location.code === 'z2')
         .map(location => {
           location.numberOfRunners = this.getters.zoneTwo.length
         })
     },
-    zoneThreeRunners (state) {
+    zoneThreeRunners(state) {
       return state.locations
         .filter(location => location.code === 'z3')
         .map(location => {
           location.numberOfRunners = this.getters.zoneThree.length
         })
     },
-    zoneFourRunners (state) {
+    zoneFourRunners(state) {
       return state.locations
         .filter(location => location.code === 'z4')
         .map(location => {
           location.numberOfRunners = this.getters.zoneFour.length
         })
     },
-    zoneFiveRunners (state) {
+    zoneFiveRunners(state) {
       return state.locations
         .filter(location => location.code === 'z5')
         .map(location => {
           location.numberOfRunners = this.getters.zoneFive.length
         })
     },
-    zoneSixRunners (state) {
+    zoneSixRunners(state) {
       return state.locations
         .filter(location => location.code === 'z6')
         .map(location => {
           location.numberOfRunners = this.getters.zoneSix.length
         })
     },
-    zoneSevenRunners (state) {
+    zoneSevenRunners(state) {
       return state.locations
         .filter(location => location.code === 'z7')
         .map(location => {
           location.numberOfRunners = this.getters.zoneSeven.length
         })
     },
-    zoneEightRunners (state) {
+    zoneEightRunners(state) {
       return state.locations
         .filter(location => location.code === 'z8')
         .map(location => {
           location.numberOfRunners = this.getters.zoneEight.length
         })
     },
-    zoneNineRunners (state) {
+    zoneNineRunners(state) {
       return state.locations
         .filter(location => location.code === 'z9')
         .map(location => {
           location.numberOfRunners = this.getters.zoneNine.length
         })
     },
-    zoneTenRunners (state) {
+    zoneTenRunners(state) {
       return state.locations
         .filter(location => location.code === 'z10')
         .map(location => {
           location.numberOfRunners = this.getters.zoneTen.length
         })
     },
-    zoneElevenRunners (state) {
+    zoneElevenRunners(state) {
       return state.locations
         .filter(location => location.code === 'z11')
         .map(location => {
           location.numberOfRunners = this.getters.zoneEleven.length
         })
     },
-    zoneTwelveRunners (state) {
+    zoneTwelveRunners(state) {
       return state.locations
         .filter(location => location.code === 'z12')
         .map(location => {
           location.numberOfRunners = this.getters.zoneTwelve.length
         })
     },
-    zoneThirteenRunners (state) {
+    zoneThirteenRunners(state) {
       return state.locations
         .filter(location => location.code === 'z13')
         .map(location => {
           location.numberOfRunners = this.getters.zoneThirteen.length
         })
     },
-    rasberryRunners (state) {
+    rasberryRunners(state) {
       return state.locations
         .filter(location => location.code === 'ra1')
         .map(location => {
           location.numberOfRunners = this.getters.rasberry.length
         })
     },
-    anteroRunners (state) {
+    anteroRunners(state) {
       return state.locations
         .filter(location => location.code === 'ant')
         .map(location => {
           location.numberOfRunners = this.getters.antero.length
         })
     },
-    stElmoRunners (state) {
+    stElmoRunners(state) {
       return state.locations
         .filter(location => location.code === 'ste1')
         .map(location => {
           location.numberOfRunners = this.getters.stElmo.length
         })
     },
-    cottonwoodRunners (state) {
+    cottonwoodRunners(state) {
       return state.locations
         .filter(location => location.code === 'cot')
         .map(location => {
           location.numberOfRunners = this.getters.cottonwood.length
         })
     },
-    stElmoTwoRunners (state) {
+    stElmoTwoRunners(state) {
       return state.locations
         .filter(location => location.code === 'ste2')
         .map(location => {
           location.numberOfRunners = this.getters.stElmoTwo.length
         })
     },
-    hancockRunners (state) {
+    hancockRunners(state) {
       return state.locations
         .filter(location => location.code === 'han')
         .map(location => {
           location.numberOfRunners = this.getters.hancock.length
         })
     },
-    lostWonderRunners (state) {
+    lostWonderRunners(state) {
       return state.locations
         .filter(location => location.code === 'los')
         .map(location => {
           location.numberOfRunners = this.getters.lostWonder.length
         })
     },
-    purgatoryRunners (state) {
+    purgatoryRunners(state) {
       return state.locations
         .filter(location => location.code === 'pur')
         .map(location => {
           location.numberOfRunners = this.getters.purgatory.length
         })
     },
-    monarchRunners (state) {
+    monarchRunners(state) {
       return state.locations
         .filter(location => location.code === 'mon')
         .map(location => {
           location.numberOfRunners = this.getters.monarch.length
         })
     },
-    foosesRunners (state) {
+    foosesRunners(state) {
       return state.locations
         .filter(location => location.code === 'foo')
         .map(location => {
           location.numberOfRunners = this.getters.fooses.length
         })
     },
-    blanksRunners (state) {
+    blanksRunners(state) {
       return state.locations
         .filter(location => location.code === 'bla')
         .map(location => {
           location.numberOfRunners = this.getters.blanks.length
         })
     },
-    rasberryTwoRunners (state) {
+    rasberryTwoRunners(state) {
       return state.locations
         .filter(location => location.code === 'ra2')
         .map(location => {
           location.numberOfRunners = this.getters.rasberryTwo.length
         })
-    }
+    },
   },
   actions: {
-    listRunners (store) {
+    listRunners(store) {
       fetch(`${BASE_URL}`)
         .then(response => response.json())
         .then(runners => {
@@ -403,12 +403,12 @@ export default new Vuex.Store({
           })
       }, 20000)
     },
-    timeLeft (store) {
+    timeLeft(store) {
       setInterval(() => {
         store.commit('timeLeft')
       }, 1000)
     },
-    numberOfRunners (store) {
+    numberOfRunners(store) {
       setInterval(() => {
         store.commit('zoneOneRunners')
         store.commit('zoneTwoRunners')
@@ -435,9 +435,22 @@ export default new Vuex.Store({
         store.commit('blanksRunners')
         store.commit('rasberryTwoRunners')
       }, 20000)
-    }
+    },
   },
   getters: {
+    aidStations(state) {
+      return state.locations.filter(location => location.type === 'aidStation')
+    },
+    aidStationByCode: state => code => {
+      return state.locations
+        .filter(location => location.type === 'aidStation')
+        .find(aidStation => aidStation.code === code)
+    },
+    runnerByBibNum: state => bibNum => {
+      if (!state.runners) return null
+      return state.runners.find(runner => runner.bibNumber === bibNum)
+    },
+
     zoneOne: state => {
       return state.runners.filter(
         runner => runner.Started === true && runner.RasberryOneIn === null
@@ -562,6 +575,6 @@ export default new Vuex.Store({
       return state.runners.filter(
         runner => runner.RasberryTwoIn != null && runner.RasberryTwoOut === null
       )
-    }
-  }
+    },
+  },
 })

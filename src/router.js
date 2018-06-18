@@ -16,37 +16,37 @@ export default new Router({
     {
       path: '/',
       name: 'LandingPage',
-      component: LandingPage
+      component: LandingPage,
     },
     {
       path: '/runnercheckin',
       name: 'RunnerCheckIn',
-      component: RunnerCheckIn
+      component: RunnerCheckIn,
     },
     {
       path: '/access',
       name: 'Access',
-      component: Access
+      component: Access,
     },
     {
       path: '/roster',
       name: 'Roster',
-      component: Roster
+      component: Roster,
     },
     {
       path: '/runnertrackingconsole',
       name: 'RunnerTrackingConsole',
-      component: RunnerTrackingConsole
+      component: RunnerTrackingConsole,
     },
     {
       path: '/pick-aid-station',
       name: 'PickAidStation',
-      component: PickAidStation
+      component: PickAidStation,
     },
     {
-      path: '/aid-station/:name',
+      path: '/aid-station/:code',
       name: 'AidStation',
-      component: AidStation
-    }
-  ]
+      component: AidStation,
+    },
+  ],
 })

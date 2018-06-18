@@ -23,12 +23,12 @@ import moment from 'moment'
 export default {
   name: 'StatBar',
   props: ['arrayBegin', 'arrayEnd'],
-  created () {
+  created() {
     this.$store.dispatch('timeLeft'), this.$store.dispatch('numberOfRunners')
   },
   computed: {
-    ...mapState(['locations'])
-  }
+    ...mapState(['locations']),
+  },
 }
 </script>
 <style scoped>

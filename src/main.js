@@ -26,6 +26,8 @@ import VSubheader from 'vuetify/es5/components/VSubheader'
 import VDivider from 'vuetify/es5/components/VDivider'
 import VRadioGroup from 'vuetify/es5/components/VRadioGroup'
 import VDataTable from 'vuetify/es5/components/VDataTable'
+import VTabs from 'vuetify/es5/components/VTabs'
+import VChip from 'vuetify/es5/components/VChip'
 
 import '../node_modules/vuetify/src/stylus/app.styl'
 
@@ -51,7 +53,9 @@ Vue.use(Vuetify, {
     VSubheader,
     VDivider,
     VRadioGroup,
-    VDataTable
+    VDataTable,
+    VTabs,
+    VChip
   },
   theme: {
     primary: '#A97C54',
