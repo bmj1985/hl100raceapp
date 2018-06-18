@@ -255,13 +255,13 @@ export default new Vuex.Store({
 
       state.runners.forEach(runner => {
         if (location.type === 'aidStation') {
-          const locationName = location.name
+          const aidStationName = location.name
             .replace(/ /g, '')
             .replace(/\./g, '')
 
           if (
-            runner[`${locationName}In`] != null &&
-            runner[`${locationName}Out` === null]
+            runner[`${aidStationName}In`] != null &&
+            runner[`${aidStationName}Out` === null]
           ) {
             num++
           }
