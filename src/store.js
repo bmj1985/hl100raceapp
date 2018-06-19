@@ -13,165 +13,178 @@ export default new Vuex.Store({
       {
         name: 'Zone 1',
         code: 'z1',
-        type: 'zone'
+        type: 'zone',
       },
       {
         code: 'ra1',
         name: 'Rasberry',
         cutoff: '2018-08-03 08:00',
         type: 'aidStation',
-        timeLeft: ''
+        timeLeft: '',
+        hasCellService: true,
       },
       {
         name: 'Zone 2',
         code: 'z2',
-        type: 'zone'
+        type: 'zone',
       },
       {
         code: 'ant',
         name: 'Antero',
         cutoff: '2018-08-03 13:00',
         type: 'aidStation',
-        timeLeft: ''
+        timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 3',
         code: 'z3',
-        type: 'zone'
+        type: 'zone',
       },
       {
         code: 'ste1',
         name: 'St. Elmo One',
         cutoff: '2018-08-03 15:30',
         type: 'aidStation',
-        timeLeft: ''
+        timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 4',
         code: 'z4',
-        type: 'zone'
+        type: 'zone',
       },
       {
         code: 'cot',
         name: 'Cottonwood',
         cutoff: '2018-08-03 18:00',
         type: 'aidStation',
-        timeLeft: ''
+        timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 5',
         code: 'z5',
-        type: 'zone'
+        type: 'zone',
       },
       {
         code: 'ste2',
         name: 'St. Elmo Two',
         cutoff: '2018-08-03 20:30',
         type: 'aidStation',
-        timeLeft: ''
+        timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 6',
         code: 'z6',
-        type: 'zone'
+        type: 'zone',
       },
       {
         code: 'han',
         name: 'Hancock',
         cutoff: '2018-08-04 01:30',
         type: 'aidStation',
-        timeLeft: ''
+        timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 7',
         code: 'z7',
-        type: 'zone'
+        type: 'zone',
       },
       {
         code: 'los',
         name: 'Lost Wonder',
         cutoff: '2018-08-04 04:00',
         type: 'aidStation',
-        timeLeft: ''
+        timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 8',
         code: 'z8',
-        type: 'zone'
+        type: 'zone',
       },
       {
         code: 'pur',
         name: 'Purgatory',
         type: 'aidStation',
-        timeLeft: ''
+        timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 9',
         code: 'z9',
-        type: 'zone'
+        type: 'zone',
       },
       {
         code: 'mon',
         name: 'Monarch',
         cutoff: '2018-08-04 09:00',
         type: 'aidStation',
-        timeLeft: ''
+        timeLeft: '',
+        hasCellService: true,
       },
       {
         name: 'Zone 10',
         code: 'z10',
-        type: 'zone'
+        type: 'zone',
       },
       {
         code: 'foo',
         name: 'Fooses',
         cutoff: '2018-08-04 11:00',
         type: 'aidStation',
-        timeLeft: ''
+        timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 11',
         code: 'z11',
-        type: 'zone'
+        type: 'zone',
       },
       {
         code: 'bla',
         name: 'Blanks',
         cutoff: '2018-08-04 14:00',
         type: 'aidStation',
-        timeLeft: ''
+        timeLeft: '',
+        hasCellService: true,
       },
       {
         name: 'Zone 12',
         code: 'z12',
-        type: 'zone'
+        type: 'zone',
       },
       {
         code: 'ra2',
         name: 'Rasberry Two',
         cutoff: '2018-08-04 16:45',
         type: 'aidStation',
-        timeLeft: ''
+        timeLeft: '',
+        hasCellService: true,
       },
       {
         name: 'Zone 13',
         code: 'z13',
-        type: 'zone'
+        type: 'zone',
       },
       {
         code: 'fin',
         name: 'Finish',
         cutoff: '2018-08-04 18:00',
         type: 'aidStation',
-        timeLeft: ''
-      }
-    ]
+        timeLeft: '',
+        hasCellService: true,
+      },
+    ],
   },
   mutations: {
-    listRunners (state, payload) {
+    listRunners(state, payload) {
       state.runners = payload
     },
-    timeLeft (state) {
+    timeLeft(state) {
       return state.locations.forEach(location => {
         const now = moment()
         const end = moment(location.cutoff)
@@ -185,10 +198,10 @@ export default new Vuex.Store({
           .toString()
           .padStart(2, '0')}`
       })
-    }
+    },
   },
   actions: {
-    listRunners (store) {
+    listRunners(store) {
       fetch(`${BASE_URL}`)
         .then(response => response.json())
         .then(runners => {
@@ -202,14 +215,14 @@ export default new Vuex.Store({
           })
       }, 20000)
     },
-    timeLeft (store) {
+    timeLeft(store) {
       setInterval(() => {
         store.commit('timeLeft')
       }, 1000)
-    }
+    },
   },
   getters: {
-    aidStations (state) {
+    aidStations(state) {
       return state.locations.filter(location => location.type === 'aidStation')
     },
     aidStationByCode: state => code => {
@@ -259,6 +272,6 @@ export default new Vuex.Store({
       }
       state.runners.forEach(tester)
       return num
-    }
-  }
+    },
+  },
 })
