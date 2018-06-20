@@ -21,6 +21,7 @@ export default new Vuex.Store({
         cutoff: '2018-08-03 08:00',
         type: 'aidStation',
         timeLeft: '',
+        hasCellService: true,
       },
       {
         name: 'Zone 2',
@@ -33,6 +34,7 @@ export default new Vuex.Store({
         cutoff: '2018-08-03 13:00',
         type: 'aidStation',
         timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 3',
@@ -45,6 +47,7 @@ export default new Vuex.Store({
         cutoff: '2018-08-03 15:30',
         type: 'aidStation',
         timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 4',
@@ -57,6 +60,7 @@ export default new Vuex.Store({
         cutoff: '2018-08-03 18:00',
         type: 'aidStation',
         timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 5',
@@ -69,6 +73,7 @@ export default new Vuex.Store({
         cutoff: '2018-08-03 20:30',
         type: 'aidStation',
         timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 6',
@@ -81,6 +86,7 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 01:30',
         type: 'aidStation',
         timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 7',
@@ -93,6 +99,7 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 04:00',
         type: 'aidStation',
         timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 8',
@@ -104,6 +111,7 @@ export default new Vuex.Store({
         name: 'Purgatory',
         type: 'aidStation',
         timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 9',
@@ -116,6 +124,7 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 09:00',
         type: 'aidStation',
         timeLeft: '',
+        hasCellService: true,
       },
       {
         name: 'Zone 10',
@@ -128,6 +137,7 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 11:00',
         type: 'aidStation',
         timeLeft: '',
+        hasCellService: false,
       },
       {
         name: 'Zone 11',
@@ -140,6 +150,7 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 14:00',
         type: 'aidStation',
         timeLeft: '',
+        hasCellService: true,
       },
       {
         name: 'Zone 12',
@@ -152,6 +163,7 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 16:45',
         type: 'aidStation',
         timeLeft: '',
+        hasCellService: true,
       },
       {
         name: 'Zone 13',
@@ -164,6 +176,7 @@ export default new Vuex.Store({
         cutoff: '2018-08-04 18:00',
         type: 'aidStation',
         timeLeft: '',
+        hasCellService: true,
       },
     ],
   },

@@ -87,7 +87,7 @@ export default {
     size: []
   }),
   methods: {
-    addNewRunner () {
+    addNewRunner() {
       fetch(this.apiUrl, {
         headers: new Headers({
           'Content-Type': 'application/json'
@@ -115,10 +115,10 @@ export default {
         })
         .catch(err => console.log('Request failed', err))
     },
-    clear () {
+    clear() {
       this.$refs.form.reset()
     },
-    confirmSubmission () {
+    confirmSubmission() {
       this.submissionText = 'Submission successful!'
       setTimeout(() => {
         this.submissionText = ''
