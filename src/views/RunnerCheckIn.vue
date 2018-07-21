@@ -84,32 +84,26 @@ export default {
     medicalCondition: '',
     medication: '',
     sex: [],
-    size: []
+    size: [],
   }),
   methods: {
     addNewRunner() {
-      fetch(this.apiUrl, {
-        headers: new Headers({
-          'Content-Type': 'application/json'
-        }),
-        method: 'POST',
-        body: JSON.stringify({
+      this.$store
+        .dispatch('addRunner', {
           bibNumber: this.bibNumber,
           name: this.name,
           shirtSize: `${this.sex} ${this.size}`,
           locationStaying: this.locationStaying,
           shoeBath: this.shoeBath,
           medicalCondition: this.medicalCondition,
-          medication: this.medication
+          medication: this.medication,
         })
-      })
-        .then(response => response.json())
         .then(() => this.confirmSubmission())
         .then(() => this.clear())
         .then(() => {
           setTimeout(() => {
-            this.$router.push({
-              name: 'RunnerCheckIn'
+            self.$router.push({
+              name: 'RunnerCheckIn',
             })
           }, 1500)
         })
@@ -123,8 +117,8 @@ export default {
       setTimeout(() => {
         this.submissionText = ''
       }, 1500)
-    }
-  }
+    },
+  },
 }
 </script>
 
