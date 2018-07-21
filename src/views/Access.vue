@@ -35,9 +35,7 @@ export default {
   name: 'Access',
   data () {
     return {
-      title: 'LONESOME',
-      title_span1: 'HIGH',
-      title_span2: '100'
+      title: 'HIGH LONESOME 100',
     }
   }
 }
