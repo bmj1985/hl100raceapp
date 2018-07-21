@@ -222,7 +222,9 @@ export default new Vuex.Store({
         .database()
         .ref('runners')
         .on('value', snapshot => {
-          store.commit('listRunners', snapshot.val())
+          var runners = snapshot.val()
+          if (runners) runners = Object.values(runners)
+          store.commit('listRunners', runners)
         })
     },
     timeLeft(store) {
