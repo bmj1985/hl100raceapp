@@ -1,17 +1,22 @@
 <template>
 <div id="runnercheckinwrapper">
   <div id="runnercheckin">
-    <h1>Add Runner to Roster</h1>
+    <h1>Runner Check In</h1>
     <v-form id="runnercheckinform" v-model="valid" ref="form" lazy-validation>
-      <v-switch label="Photo ID" v-model="photoId" value="Yes" @click="addNewRunner"></v-switch>
-    <v-text-field
-      label="Bib #"
-      v-model="bibNumber"
-    ></v-text-field>
-    <v-text-field
+        <v-text-field
       label="Name"
       v-model="name"
     ></v-text-field>
+      <v-text-field
+      label="Bib #"
+      v-model="bibNumber"
+    ></v-text-field>
+      <v-switch :label="`Photo ID: ${photoId.toString()}`" v-model="photoId"></v-switch>
+       <v-switch :label="`CORSAR Card: ${corsarCard.toString()}`" v-model="corsarCard"></v-switch>
+       <v-switch :label="`Signed Waiver: ${signedWaiver.toString()}`" v-model="signedWaiver"></v-switch>
+        <v-switch :label="`Vehicle Pass Given to Crew: ${crewPass.toString()}`" v-model="crewPass"></v-switch>
+           <v-switch :label="`Pre-Race Photo: ${preRacePhoto.toString()}`" v-model="preRacePhoto"></v-switch>
+            <v-switch :label="`Runner Survey Complete: ${runnerSurvey.toString()}`" v-model="runnerSurvey"></v-switch>
      <v-container class="radio-btn" fluid>
        <h4>Shirt Size</h4>
        <v-radio-group v-model="sex" row>
@@ -87,6 +92,11 @@ export default {
   name: 'RunnerCheckIn',
   data: () => ({
     photoId: false,
+    corsarCard: false,
+    runnerSurvey: false,
+    preRacePhoto: false,
+    crewPass: false,
+    signedWaiver: false,
     valid: true,
     checkbox: false,
     submissionText: '',
@@ -108,9 +118,15 @@ export default {
       this.$store
         .dispatch('addRunner', {
           photoId: this.photoId,
+          corsarCard: this.corsarCard,
+          runnerSurvey: this.runnerSurvey,
+          preRacePhoto: this.preRacePhoto,
+          crewPass: this.crewPass,
+          signedWaiver: this.signedWaiver,
           bibNumber: this.bibNumber,
           name: this.name,
           shirtSize: `${this.sex} ${this.size}`,
+          sockSize: `${this.sockSex} ${this.sockSize}`,
           locationStaying: this.locationStaying,
           shoeBath: this.shoeBath,
           medicalCondition: this.medicalCondition,
