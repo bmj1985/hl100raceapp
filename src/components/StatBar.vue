@@ -14,7 +14,7 @@
           </v-card-text>
         </v-card>
       </v-flex>
-    å</v-layout>
+    </v-layout>
   </v-container>
 </template>
 <script>
@@ -27,6 +27,9 @@ export default {
     this.$store.dispatch('timeLeft')
   },
   methods: {
+    listOfRunnersInLocation(location) {
+      return this.$store.getters.listOfRunnersInLocation(location.code)
+    },
     numOfRunnersInLocation(location) {
       return this.$store.getters.numOfRunnersInLocation(location.code)
     },

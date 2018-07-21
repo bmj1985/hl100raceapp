@@ -237,7 +237,6 @@ export default new Vuex.Store({
     numOfRunnersInLocation: state => locationCode => {
       let num = 0
       const location = state.locations.find(l => l.code === locationCode)
-
       const index = state.locations.indexOf(location)
 
       let tester

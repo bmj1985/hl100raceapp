@@ -3,6 +3,7 @@
   <div id="runnercheckin">
     <h1>Add Runner to Roster</h1>
     <v-form id="runnercheckinform" v-model="valid" ref="form" lazy-validation>
+      <v-switch label="Photo ID" v-model="photoId" value="Yes" @click="addNewRunner"></v-switch>
     <v-text-field
       label="Bib #"
       v-model="bibNumber"
@@ -18,6 +19,20 @@
       <v-radio label="Women's" value="Women's"></v-radio>
     </v-radio-group>
     <v-radio-group v-model="size" row>
+      <v-radio label="XS" value="X-Small" ></v-radio>
+       <v-radio label="S" value="Small" ></v-radio>
+        <v-radio label="M" value="Medium" ></v-radio>
+         <v-radio label="L" value="Large" ></v-radio>
+          <v-radio label="XL" value="X-Large" ></v-radio>
+    </v-radio-group>
+  </v-container>
+       <v-container class="radio-btn" fluid>
+       <h4>Sock Size</h4>
+       <v-radio-group v-model="sockSex" row>
+      <v-radio label="Men's" value="Men's" ></v-radio>
+      <v-radio label="Women's" value="Women's"></v-radio>
+    </v-radio-group>
+    <v-radio-group v-model="sockSize" row>
       <v-radio label="XS" value="X-Small" ></v-radio>
        <v-radio label="S" value="Small" ></v-radio>
         <v-radio label="M" value="Medium" ></v-radio>
@@ -72,6 +87,7 @@ export default {
   name: 'RunnerCheckIn',
   data: () => ({
     apiUrl: 'https://hl100-runnertracking.herokuapp.com/api/beta/runners/',
+    photoId: false,
     valid: true,
     checkbox: false,
     submissionText: '',
@@ -84,13 +100,15 @@ export default {
     medicalCondition: '',
     medication: '',
     sex: [],
-    size: []
+    size: [],
+    sockSex: [],
+    sockSize: [],
   }),
   methods: {
     addNewRunner() {
       fetch(this.apiUrl, {
         headers: new Headers({
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         }),
         method: 'POST',
         body: JSON.stringify({
@@ -100,8 +118,8 @@ export default {
           locationStaying: this.locationStaying,
           shoeBath: this.shoeBath,
           medicalCondition: this.medicalCondition,
-          medication: this.medication
-        })
+          medication: this.medication,
+        }),
       })
         .then(response => response.json())
         .then(() => this.confirmSubmission())
@@ -109,7 +127,7 @@ export default {
         .then(() => {
           setTimeout(() => {
             this.$router.push({
-              name: 'RunnerCheckIn'
+              name: 'RunnerCheckIn',
             })
           }, 1500)
         })
@@ -123,8 +141,8 @@ export default {
       setTimeout(() => {
         this.submissionText = ''
       }, 1500)
-    }
-  }
+    },
+  },
 }
 </script>
 
