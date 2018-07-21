@@ -1,10 +1,20 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import moment from 'moment'
+var firebase = require('firebase/app')
+require('firebase/database')
 
 Vue.use(Vuex)
 
-const BASE_URL = 'https://hl100-runnertracking.herokuapp.com/api/beta/runners'
+var config = {
+  apiKey: 'AIzaSyDQkaMDzm_E4rqYakdU1U7D4KVukMmZFSI',
+  authDomain: 'high-lonesome.firebaseapp.com',
+  databaseURL: 'https://high-lonesome.firebaseio.com',
+  projectId: 'high-lonesome',
+  storageBucket: 'high-lonesome.appspot.com',
+  messagingSenderId: '406874653546',
+}
+firebase.initializeApp(config)
 
 export default new Vuex.Store({
   state: {
@@ -389,19 +399,19 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    addRunner(store, runner) {
+      return firebase
+        .database()
+        .ref('runners')
+        .push(runner)
+    },
     listRunners(store) {
-      fetch(`${BASE_URL}`)
-        .then(response => response.json())
-        .then(runners => {
-          store.commit('listRunners', runners)
+      firebase
+        .database()
+        .ref('runners')
+        .on('value', snapshot => {
+          store.commit('listRunners', snapshot.val())
         })
-      setInterval(() => {
-        fetch(`${BASE_URL}`)
-          .then(response => response.json())
-          .then(runners => {
-            store.commit('listRunners', runners)
-          })
-      }, 20000)
     },
     timeLeft(store) {
       setInterval(() => {
