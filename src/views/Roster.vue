@@ -14,7 +14,7 @@
         <template slot="items" slot-scope="props" color="secondary">
         <td>{{ props.item.bibNumber }}</td>
       <td class="text-xs-left">{{ props.item.name }}</td>
-          <td class="justify-center layout px-0">
+          <td class="layout px-0">
         <v-icon
           small
           class="mr-2"
@@ -68,7 +68,7 @@ export default {
           sortable: true,
           value: 'name',
         },
-        { text: 'Actions', value: 'name', sortable: false },
+        { text: 'Actions', value: 'Edit', sortable: false, align: 'left' },
       ],
     }
   },
