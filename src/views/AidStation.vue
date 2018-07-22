@@ -39,7 +39,7 @@
             <div class="runner" v-if="foundRunner">
               <v-layout row>
                 <v-layout column>
-                  <div class="headline">{{foundRunner.bibNumber}}</div>
+                  <div class="headline">{{foundRunner.bibNum}}</div>
                   <div>{{foundRunner.name}}</div>
                 </v-layout>
                 <v-layout column>

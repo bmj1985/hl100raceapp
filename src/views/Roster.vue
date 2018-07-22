@@ -12,19 +12,19 @@
       </v-card-title>
       <v-data-table :headers="headers" :items="runners" :search="search">
         <template slot="items" slot-scope="props" color="secondary">
-        <td>{{ props.item.bibNumber }}</td>
-      <td class="text-xs-left">{{ props.item.name }}</td>
+        <td>{{ props.item.bibNum }}</td>
+      <td class="text-xs-left">{{props.item.firstName}}</td>
+       <td class="text-xs-left">{{props.item.lastName}}</td>
           <td class="layout px-0">
         <v-icon
           small
           class="mr-2"
-          @click="editItem(props.item)"
         >
           edit
         </v-icon>
       </td>
       </template>
-        <v-alert slot="no-results" :value="true" color="error" v-icon="warning">
+        <v-alert slot="no-results" :value="true" color="error">
           Your search for "{{ search }}" found no results.
         </v-alert>
       </v-data-table>
@@ -63,7 +63,13 @@ export default {
           value: 'bibNumber',
         },
         {
-          text: 'Name',
+          text: 'First Name',
+          align: 'left',
+          sortable: true,
+          value: 'name',
+        },
+        {
+          text: 'Last Name',
           align: 'left',
           sortable: true,
           value: 'name',

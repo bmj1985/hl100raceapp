@@ -234,6 +234,11 @@ export default new Vuex.Store({
     },
   },
   getters: {
+    name(state) {
+      return state.runners.map(runner => {
+        return `${runner.firstName} ${runner.lastName}`
+      })
+    },
     aidStations(state) {
       return state.locations.filter(location => location.type === 'aidStation')
     },
@@ -244,7 +249,7 @@ export default new Vuex.Store({
     },
     runnerByBibNum: state => bibNum => {
       if (!state.runners) return null
-      return state.runners.find(runner => runner.bibNumber === bibNum)
+      return state.runners.find(runner => runner.bibNum === bibNum)
     },
     numOfRunnersInLocation: state => locationCode => {
       let num = 0

@@ -6,8 +6,8 @@
     class="elevation-1"
   >
     <template slot="items" slot-scope="props">
-      <td>{{ props.item.name }}</td>
-      <td class="text-xs-center">{{ props.item.bibNumber }}</td>
+      <td>{{ `${props.item.firstName} ${props.item.lastName}` }}</td>
+      <td class="text-xs-center">{{ props.item.bibNum }}</td>
       <td class="text-xs-center">{{ props.item.Started }}</td>
       <td class="text-xs-center">{{ props.item.RasberryOneIn}}</td>
       <td class="text-xs-center">{{ props.item.RasberryOneOut}}</td>
@@ -54,16 +54,16 @@
 export default {
   name: 'RunnerList',
   props: ['runners'],
-  data () {
+  data() {
     return {
       headers: [
         {
           text: 'Name',
           align: 'left',
           sortable: true,
-          value: 'name'
+          value: 'name',
         },
-        { text: 'Bib Number', align: 'center', value: 'bibNumber' },
+        { text: 'Bib Number', align: 'center', value: 'bibNum' },
         { text: 'Started', align: 'center', value: 'Started' },
         { text: 'Rasberry Time In', align: 'center', value: 'RasberryOneIn' },
         { text: 'Rasberry Time Out', align: 'center', value: 'RasberryOneOut' },
@@ -73,7 +73,7 @@ export default {
         {
           text: 'St Elmo One Time Out',
           align: 'center',
-          value: 'StElmoOneOut'
+          value: 'StElmoOneOut',
         },
         { text: 'Cottonwood Time In', align: 'center', value: 'CottonwoodIn' },
         { text: 'Cottonwood Time Out', value: 'CottonwoodOut' },
@@ -85,31 +85,31 @@ export default {
         {
           text: 'Hancock Pacer Out',
           align: 'center',
-          value: 'HancockPacerOut'
+          value: 'HancockPacerOut',
         },
         { text: 'Lost Wonder In', align: 'center', value: 'LostWonderIn' },
         { text: 'Lost Wonder Out', align: 'center', value: 'LostWonderOut' },
         {
           text: 'Lost Wonder Pacer In',
           align: 'center',
-          value: 'LostWonderPacerIn'
+          value: 'LostWonderPacerIn',
         },
         {
           text: 'Lost Wonder Pacer Out',
           align: 'center',
-          value: 'LostWonderPacerOut'
+          value: 'LostWonderPacerOut',
         },
         { text: 'Purgatory Time In', align: 'center', value: 'PurgatoryIn' },
         { text: 'Purgatory Time Out', align: 'center', value: 'PurgatoryOut' },
         {
           text: 'Purgatory Pacer In',
           align: 'center',
-          value: 'PurgatoryPacerIn'
+          value: 'PurgatoryPacerIn',
         },
         {
           text: 'Purgatory Pacer Out',
           align: 'center',
-          value: 'PurgatoryPacerOut'
+          value: 'PurgatoryPacerOut',
         },
         { text: 'Monarch Time In', align: 'center', value: 'MonarchIn' },
         { text: 'Monarch Time Out', align: 'center', value: 'MonarchOut' },
@@ -117,7 +117,7 @@ export default {
         {
           text: 'Monarch Pacer Out',
           align: 'center',
-          value: 'MonarchPacerOut'
+          value: 'MonarchPacerOut',
         },
         { text: 'Fooses Time In', align: 'center', value: 'FoosesIn' },
         { text: 'Fooses Time Out', align: 'center', value: 'FoosesOut' },
@@ -130,26 +130,26 @@ export default {
         {
           text: 'Rasberry Two Time In',
           align: 'center',
-          value: 'RasberryTwoIn'
+          value: 'RasberryTwoIn',
         },
         {
           text: 'Rasberry Two Time Out',
           align: 'center',
-          value: 'RasberryTwoOut'
+          value: 'RasberryTwoOut',
         },
         {
           text: 'Rasberry Two Pacer In',
           align: 'center',
-          value: 'RasberryTwoPacerIn'
+          value: 'RasberryTwoPacerIn',
         },
         {
           text: 'Rasberry Two Pacer Out',
           align: 'center',
-          value: 'RasberryTwoPacerOut'
-        }
-      ]
+          value: 'RasberryTwoPacerOut',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 <style scoped>

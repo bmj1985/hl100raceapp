@@ -28,6 +28,7 @@ import VRadioGroup from 'vuetify/es5/components/VRadioGroup'
 import VDataTable from 'vuetify/es5/components/VDataTable'
 import VTabs from 'vuetify/es5/components/VTabs'
 import VChip from 'vuetify/es5/components/VChip'
+import VAlert from 'vuetify/es5/components/VAlert'
 
 import '../node_modules/vuetify/src/stylus/app.styl'
 
@@ -44,6 +45,7 @@ Vue.use(Vuetify, {
     VToolbar,
     transitions,
     VForm,
+    VAlert,
     VTextField,
     VSelect,
     VCheckbox,
@@ -55,7 +57,7 @@ Vue.use(Vuetify, {
     VRadioGroup,
     VDataTable,
     VTabs,
-    VChip
+    VChip,
   },
   theme: {
     primary: '#A97C54',
@@ -69,8 +71,8 @@ Vue.use(Vuetify, {
     green: '#639D6A',
     taupe: '#CBA37F',
     darkText: '#303131',
-    input: '#F6D7BD'
-  }
+    input: '#F6D7BD',
+  },
 })
 
 Vue.config.productionTip = false
@@ -78,5 +80,5 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
 }).$mount('#app')

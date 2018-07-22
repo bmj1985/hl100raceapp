@@ -15,7 +15,6 @@
     <v-container fluid class="ma-0 pa-0">
     <StatBar :arrayBegin="0" :arrayEnd="14"></StatBar>
      <v-layout row>
-     <img id="coursemap" src="../assets/courseMap.png" />
     <RunnerList id="runnerlist" :runners="runners"/>
     <!-- <LocationList id="locationlist" :runners="runners"/> -->
     </v-layout>
