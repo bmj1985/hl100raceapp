@@ -3,14 +3,9 @@
       <v-layout column align-center class="access-wrap">
         <h1><span>{{title_span1}}</span> {{title}} <span>{{title_span2}}</span></h1>
         <div class="text-xs-center tri-links">
-          <router-link class="nav-link" :to="{ name: 'Roster'}">
+          <router-link class="nav-link" :to="{ name: 'RunnerCheckIn'}">
             <v-btn round color="blue" large dark>
-              Roster
-            </v-btn>
-          </router-link>
-          <router-link class="nav-link" :to="{ name: 'RunnerTrackingConsole'}">
-            <v-btn round color="green" large dark>
-              Runner Tracking List
+              Runner Checkin
             </v-btn>
           </router-link>
           <router-link class="nav-link" :to="{ name: 'PickAidStation'}">
@@ -33,11 +28,11 @@
 <script>
 export default {
   name: 'Access',
-  data () {
+  data() {
     return {
       title: 'HIGH LONESOME 100',
     }
-  }
+  },
 }
 </script>
 
