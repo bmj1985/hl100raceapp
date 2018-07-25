@@ -1,20 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import moment from 'moment'
-var firebase = require('firebase/app')
-require('firebase/database')
 
 Vue.use(Vuex)
-
-var config = {
-  apiKey: 'AIzaSyDQkaMDzm_E4rqYakdU1U7D4KVukMmZFSI',
-  authDomain: 'high-lonesome.firebaseapp.com',
-  databaseURL: 'https://high-lonesome.firebaseio.com',
-  projectId: 'high-lonesome',
-  storageBucket: 'high-lonesome.appspot.com',
-  messagingSenderId: '406874653546',
-}
-firebase.initializeApp(config)
 
 export default new Vuex.Store({
   state: {
@@ -194,44 +181,9 @@ export default new Vuex.Store({
     listRunners(state, payload) {
       state.runners = payload
     },
-    timeLeft(state) {
-      return state.locations.forEach(location => {
-        const now = moment()
-        const end = moment(location.cutoff)
-        const duration = moment.duration(end.diff(now))
-        let hours = duration.asHours() - (duration.asHours() % 1)
-        let minutes = duration.asMinutes() % 60
-        let seconds = duration.asSeconds() % 60
-        location.timeLeft = `${hours}:${Math.round(minutes)
-          .toString()
-          .padStart(2, '0')}:${Math.round(seconds)
-          .toString()
-          .padStart(2, '0')}`
-      })
-    },
   },
   actions: {
-    addRunner(store, runner) {
-      return firebase
-        .database()
-        .ref('runners')
-        .push(runner)
-    },
-    listRunners(store) {
-      firebase
-        .database()
-        .ref('runners')
-        .on('value', snapshot => {
-          var runners = snapshot.val()
-          if (runners) runners = Object.values(runners)
-          store.commit('listRunners', runners)
-        })
-    },
-    timeLeft(store) {
-      setInterval(() => {
-        store.commit('timeLeft')
-      }, 1000)
-    },
+    listRunners(store) {},
   },
   getters: {
     aidStations(state) {
