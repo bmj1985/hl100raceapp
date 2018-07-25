@@ -14,9 +14,8 @@
           slider-color="white"
           color="transparent"
         >
-          <v-tab key="all">Find Bib</v-tab>
-          <v-tab key="checkin">In</v-tab>
-          <v-tab key="left">Left</v-tab>
+          <v-tab key="all">Check In</v-tab>
+          <v-tab key="checkin">Check Out</v-tab>
           <v-tab key="history">History</v-tab>
         </v-tabs>
  
