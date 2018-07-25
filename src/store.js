@@ -3,6 +3,8 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+const BASE_URL = 'https://us-central1-high-lonesome.cloudfunctions.net'
+
 export default new Vuex.Store({
   state: {
     runners: [],
@@ -183,7 +185,13 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    listRunners(store) {},
+    listRunners(store) {
+      fetch(`${BASE_URL}/runners`)
+        .then(response => response.json())
+        .then(runners => {
+          store.commit('listRunners', runners)
+        })
+    },
   },
   getters: {
     aidStations(state) {
@@ -195,8 +203,9 @@ export default new Vuex.Store({
         .find(aidStation => aidStation.code === code)
     },
     runnerByBibNum: state => bibNum => {
-      if (!state.runners) return null
-      return state.runners.find(runner => runner.bibNumber === bibNum)
+      if (!state.runners || !bibNum || !bibNum.length) return null
+      var runner = state.runners.find(runner => runner.bibNumber === bibNum)
+      return runner
     },
     numOfRunnersInLocation: state => locationCode => {
       let num = 0

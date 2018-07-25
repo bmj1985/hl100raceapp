@@ -76,7 +76,7 @@
         <v-btn @click="clear" round color="secondary" class="btn-roster" large dark>
           Clear
         </v-btn>
-         <router-link class="nav-link-roster" :to="{ name: 'Roster'}">
+         <router-link class="nav-link-roster" :to="{ name: 'Access'}">
         <v-btn round color="secondary" class="btn-roster" large dark>
           Back
         </v-btn>
